@@ -2,8 +2,15 @@
 
 <h5><%= @director.name %> is an <%= @director.nationality %> director. Born on <%= @director.dob.strftime '%A, %e %B %Y' if @director.dob %></h5>
 
-<%= image_tag @director.image, :class => 'Feature' %>
+<%= image_tag @director.image, :class => 'feature' %>
 
+<h3>Films directed by <%= @director.name %>;</h3>
+<% @director.films.each do |film| %>
+  <%= link_to image_tag(film.poster, :class => "thumb"), film %>
+<% end %>
+<br>
+<br>
+<br>
 <div class="controls">
 <%= link_to 'Edit Director', edit_director_path(@director) %>
 

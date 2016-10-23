@@ -1,2 +1,19 @@
-<h1>Films#show</h1>
-<p>Find me in app/views/films/show.html.erb</p>
+<h1><%= @film.title %></h1>
+<%= image_tag @film.poster, :class => 'feature' %>
+<br><br>
+
+<% if @film.director %>
+  <h2>Directed by <em><%= link_to @film.director.name, @film.director if @film.director %></em></h2>
+<% end %>
+
+<%= @film.title %> is a <%= @film.genre %> film. Released in <%= @film.release_year %>.
+<br><br>
+<% if @film.plot %>
+  <h3>Plot:</h3>
+  <p><%= @film.plot %></p>
+<% end %>
+
+<div class="controls">
+  <%= link_to 'Edit Film', edit_film_path(@film) %>
+  <%= link_to 'Delete Film', @film, :method => 'delete', :data => {:confirm => 'Are you sure?'} %>
+</div>

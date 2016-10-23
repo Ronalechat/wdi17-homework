@@ -8,9 +8,7 @@ class DirectorsController < ApplicationController
   end
 
   def create
-    # raise params.inspect
-    director = Director.create
-    director_params
+    director = Director.create director_params
     redirect_to director
   end
 
@@ -21,9 +19,13 @@ class DirectorsController < ApplicationController
   end
 
   def edit
+    @director = Director.find params[:id]
   end
 
   def update
+    director = Director.find params[:id]
+    director.update director_params
+    redirect_to director
   end
 
   def show

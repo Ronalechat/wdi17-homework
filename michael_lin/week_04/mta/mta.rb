@@ -30,4 +30,4 @@ def plan_trip(start_line, start_station, stop_line, stop_station)
   end
 end
 
-plan_trip("N", "Times Square", "N", "8th")
+plan_trip("N", "Times Square", "L", "1st")

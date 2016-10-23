@@ -1,0 +1,27 @@
+<%= form_for @film do |f| %>
+<p>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title, :placeholder => 'The Shawshank Redemption' %>
+</p>
+<p>
+  <%= f.label :release_year, "Release Year" %>
+  <%= f.text_field :release_year, :placeholder => '2001' %>
+</p>
+<p>
+  <%= f.label :genre %>
+  <%= f.text_field :genre, :placeholder => 'Crime Thriller' %>
+</p>
+<p>
+  <%= f.label :poster %>
+  <%= f.url_field :poster, :placeholder => 'http://fillmurray.com/500/650' %>
+</p>
+<p>
+  <%= f.label :plot %>
+  <%= f.text_field :plot, :placeholder => "Three separate but parallel stories of the U.S mortgage housing crisis of 2005 are told. Michael Burry, an eccentric ex-physician turned one-eyed Scion Capital hedge fund manager, has traded traditional office attire for shorts, bare feet and a Supercuts haircut." %>
+</p>
+<p>
+  <%= f.label :director_id %>
+  <%= f.select :director_id, Director.pluck( :name, :id), :include_blank => true, :prompt => 'Select Director' %>
+</p>
+  <%= f.submit %>
+<% end %>
